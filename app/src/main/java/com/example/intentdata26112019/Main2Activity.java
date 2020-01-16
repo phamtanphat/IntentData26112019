@@ -18,8 +18,13 @@ public class Main2Activity extends AppCompatActivity {
 //        String value = intent.getStringExtra("chuoi");
 //        Toast.makeText(this, value, Toast.LENGTH_SHORT).show();
         // 2 : Lay du lieu dang mang Array
+//        Intent intent = getIntent();
+//        int[] arrayNumbers = intent.getIntArrayExtra("mang so");
+//        Toast.makeText(this, arrayNumbers.length + "", Toast.LENGTH_SHORT).show();
+        // 3 : Lay du lieu dang object
         Intent intent = getIntent();
-        int[] arrayNumbers = intent.getIntArrayExtra("mang so");
-        Toast.makeText(this, arrayNumbers.length + "", Toast.LENGTH_SHORT).show();
+        Sinhvien sinhvien = (Sinhvien) intent.getSerializableExtra("object");
+        Toast.makeText(this, sinhvien.getTen(), Toast.LENGTH_SHORT).show();
+
     }
 }

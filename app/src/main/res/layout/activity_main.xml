@@ -8,7 +8,6 @@
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".MainActivity">
-
    <Button
        android:id="@+id/buttonIntentString"
        android:text="Intent String"
@@ -17,6 +16,11 @@
    <Button
        android:id="@+id/buttonIntentArray"
        android:text="Intent Array"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"/>
+   <Button
+       android:id="@+id/buttonIntentObject"
+       android:text="Intent Object"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"/>
 

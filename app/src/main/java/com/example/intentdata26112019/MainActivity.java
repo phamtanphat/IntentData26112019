@@ -7,12 +7,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button mBtnIntentString,mBtnIntentArray;
+    Button mBtnIntentString,mBtnIntentArray,mBtnIntentObject;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,13 +21,15 @@ public class MainActivity extends AppCompatActivity {
 
         mBtnIntentString = findViewById(R.id.buttonIntentString);
         mBtnIntentArray = findViewById(R.id.buttonIntentArray);
+        mBtnIntentObject = findViewById(R.id.buttonIntentObject);
 
         mBtnIntentString.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,Main2Activity.class);
-                intent.putExtra("chuoi","Hello main 2");
-                startActivity(intent);
+//                Intent intent = new Intent(MainActivity.this,Main2Activity.class);
+//                intent.putExtra("chuoi","Hello main 2");
+//                startActivity(intent);
+                sendData("chuoi","Hello main 2");
             }
         });
         mBtnIntentArray.setOnClickListener(new View.OnClickListener() {
@@ -37,6 +40,15 @@ public class MainActivity extends AppCompatActivity {
 //                intent.putExtra("mang so",arrayNumbers);
 //                startActivity(intent);
                 sendData("mang so",arrayNumbers);
+            }
+        });
+        mBtnIntentObject.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Sinhvien sinhvien = new Sinhvien("Nguyen Van a");
+                Intent intent = new Intent(MainActivity.this,Main2Activity.class);
+                intent.putExtra("object", (Serializable) sinhvien);
+                startActivity(intent);
             }
         });
     }

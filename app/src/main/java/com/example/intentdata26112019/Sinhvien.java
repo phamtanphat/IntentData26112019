@@ -1,6 +1,8 @@
 package com.example.intentdata26112019;
 
-public class Sinhvien {
+import java.io.Serializable;
+
+public class Sinhvien implements Serializable {
     private String ten;
 
     public Sinhvien(String ten) {

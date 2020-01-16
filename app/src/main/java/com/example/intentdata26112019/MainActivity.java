@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Sinhvien sinhvien = new Sinhvien("Nguyen Van a");
                 Intent intent = new Intent(MainActivity.this,Main2Activity.class);
-                intent.putExtra("object", (Serializable) sinhvien);
+                intent.putExtra("object", sinhvien);
                 startActivity(intent);
             }
         });

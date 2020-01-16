@@ -23,7 +23,7 @@ public class Main2Activity extends AppCompatActivity {
 //        Toast.makeText(this, arrayNumbers.length + "", Toast.LENGTH_SHORT).show();
         // 3 : Lay du lieu dang object
         Intent intent = getIntent();
-        Sinhvien sinhvien = (Sinhvien) intent.getSerializableExtra("object");
+        Sinhvien sinhvien = intent.getParcelableExtra("object");
         Toast.makeText(this, sinhvien.getTen(), Toast.LENGTH_SHORT).show();
 
     }

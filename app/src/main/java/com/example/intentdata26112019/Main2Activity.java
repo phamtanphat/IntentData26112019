@@ -14,8 +14,12 @@ public class Main2Activity extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
 
         // 1 : Lay du lieu dang chuoi
+//        Intent intent = getIntent();
+//        String value = intent.getStringExtra("chuoi");
+//        Toast.makeText(this, value, Toast.LENGTH_SHORT).show();
+        // 2 : Lay du lieu dang mang Array
         Intent intent = getIntent();
-        String value = intent.getStringExtra("chuoi");
-        Toast.makeText(this, value, Toast.LENGTH_SHORT).show();
+        int[] arrayNumbers = intent.getIntArrayExtra("mang so");
+        Toast.makeText(this, arrayNumbers.length + "", Toast.LENGTH_SHORT).show();
     }
 }

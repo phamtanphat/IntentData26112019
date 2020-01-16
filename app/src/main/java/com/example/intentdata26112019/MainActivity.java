@@ -9,7 +9,9 @@ import android.widget.Button;
 
 import java.io.Serializable;
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -45,11 +47,14 @@ public class MainActivity extends AppCompatActivity {
         mBtnIntentObject.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Sinhvien sinhvien = new Sinhvien("Nguyen Van a");
-                Intent intent = new Intent(MainActivity.this,Main2Activity.class);
-                intent.putExtra("object", sinhvien);
-                startActivity(intent);
+//                Sinhvien sinhvien = new Sinhvien("Nguyen Van a");
+//                Intent intent = new Intent(MainActivity.this,Main2Activity.class);
+//                intent.putExtra("object", sinhvien);
+//                startActivity(intent);
 //                sendData("object",sinhvien);
+                ArrayList<Sinhvien> sinhviens = new ArrayList<>();
+                sinhviens.add(new Sinhvien("Nguyen Van a"));
+                sendData("object",sinhviens);
             }
         });
     }
@@ -63,6 +68,11 @@ public class MainActivity extends AppCompatActivity {
         }
         if (value instanceof Sinhvien){
             intent.putExtra(key,(Serializable) value);
+        }
+        if (value instanceof ArrayList<?>){
+            if (value instanceof Object){
+                intent.putExtra(key,(ArrayList<Sinhvien>) value);
+            }
         }
         startActivity(intent);
     }

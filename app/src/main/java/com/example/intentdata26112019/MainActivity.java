@@ -46,9 +46,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Sinhvien sinhvien = new Sinhvien("Nguyen Van a");
-                Intent intent = new Intent(MainActivity.this,Main2Activity.class);
-                intent.putExtra("object", sinhvien);
-                startActivity(intent);
+//                Intent intent = new Intent(MainActivity.this,Main2Activity.class);
+//                intent.putExtra("object", sinhvien);
+//                startActivity(intent);
+                sendData("object",sinhvien);
             }
         });
     }
@@ -59,6 +60,9 @@ public class MainActivity extends AppCompatActivity {
         }
         if (value instanceof int[]){
             intent.putExtra(key,(int[]) value);
+        }
+        if (value instanceof Sinhvien){
+            intent.putExtra(key,(Serializable) value);
         }
         startActivity(intent);
     }
